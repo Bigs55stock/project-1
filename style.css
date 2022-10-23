@@ -1,4 +1,4 @@
-#mainbox{
+.mainbox{
    background: blue;
    height:250px;
    width:250px;
@@ -8,7 +8,7 @@
    padding: 25px;
 }
 
-.question{
+#question{
 background-color: yellow;
 position: absolute;
 top:50%;
