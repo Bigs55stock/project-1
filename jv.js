@@ -18,7 +18,7 @@ const answersElement = document.querySelector(".answers")
 //console.log(showQuestion(question))
 
 
-
+// need to get questions seprated into indvidual buttons by making ojects in the array with boolean
 
 let questions10 = [
     { questions: "Who was the first president of the United States ?",
@@ -26,8 +26,10 @@ let questions10 = [
       
     },
     { questions:"what is the largest ocean?",
-      choices:["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "American Ocean"],
-      // answer: Choices[2],
+      choices:[
+        {answer:"Atlantic Ocean", right: false }, {answer:"Indian Ocean", right: false}
+        , {answer:"Pacific Ocean", right:true }, {answer:"American Ocean",right:false}],
+      
     },
     // {Questions:"How many boroughs are in NYC?",
     //  Choices:["1", "10","26","5"],
@@ -77,8 +79,17 @@ function showQuestion(){
   }
 showQuestion()
 
+let choice
 
+function showChoices(){
+  for(let i=0; i<questions10.length; i++){
+    choice = questions10[i].choices
+    answersElement.innerText= choice
 
+  }
+
+}
+showChoices()
 //questionElement.innerText= questions10.Questions
 
 
