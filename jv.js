@@ -23,13 +23,12 @@ const answersElement = document.querySelector(".answers")
 let questions10 = [
     { questions: "Who was the first president of the United States ?",
       choices: ["George Bush", "George Washington", "Abraham Lincoln", "John Cena"],
-      
+      answer:1
     },
     { questions:"what is the largest ocean?",
-      choices:[
-        {answer:"Atlantic Ocean", right: false }, {answer:"Indian Ocean", right: false}
-        , {answer:"Pacific Ocean", right:true }, {answer:"American Ocean",right:false}],
-      
+      choices:["Atlantic Ocean","Indian Ocean","Pacific Ocean", "American Ocean",],
+      answer: 2
+       
     },
     // {Questions:"How many boroughs are in NYC?",
     //  Choices:["1", "10","26","5"],
@@ -71,7 +70,7 @@ function showQuestion(){
     // console.log(questionElement.innerText)
    for(let i=0; i<questions10.length; i++){
       question = questions10[i].questions
-      questionElement.innerText= question
+      questionElement.innerText=question
    }  
 
     console.log(question)
@@ -84,7 +83,17 @@ let choice
 function showChoices(){
   for(let i=0; i<questions10.length; i++){
     choice = questions10[i].choices
-    answersElement.innerText= choice
+     console.log(choice)
+    for(let j=0; j<choice.length; j++){
+      
+      
+      answersElement.innerText=choice[j]
+      console.log(choice[j])
+    
+    
+    }
+
+    
 
   }
 
@@ -92,6 +101,14 @@ function showChoices(){
 showChoices()
 //questionElement.innerText= questions10.Questions
 
+function rightAnswer(){
+
+}
 
 
 
+
+// the way i wrote answers to see if it work this way
+ // {answer:"Atlantic Ocean", right: false }, {answer:"Indian Ocean", right: false}
+        // , {answer:"Pacific Ocean", right:true }, {answer:"American Ocean",right:false}],
+      
