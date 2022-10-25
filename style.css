@@ -22,16 +22,13 @@ h1{
    max-width:90%;
    border: 1px solid black;
    padding: 25px;
-   /* position: absolute;
+   display:flex;
    justify-content: center;
-   align-items: center; */
+   align-items: center;
 }
 
 #question{
-background-color: yellow;
-position: absolute;
-top:100px;
-left:50%;
+background-color: lightblue;
 
 } 
  
@@ -43,16 +40,6 @@ left:50%;
     
     
 } 
-
-.submit{
-    position: relative;
-    top: 375px;
-}
-
-.reset{
-    position: relative;
-    top: 375px;
-}
 
 .buttonforans{
     display:grid;

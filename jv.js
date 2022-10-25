@@ -3,13 +3,14 @@
 //Now work on javascrpit and give functionailty to buttons and questions.
 //Need to make questions.
 //Display the questions on to the Html page
+//Need start button and also make instruction page too
 
-const submitButton = document.querySelector(".submit")
-const resetButton = document.querySelector(".reset")
+const submitButton = document.getElementById("submit")
+const resetButton = document.getElementById("reset")
 const mainboxElement = document.querySelector(".mainbox")
 const questionElement = document.getElementById("question")
 const answersElement = document.getElementById("answers")
-
+const buttons= document.querySelectorAll(".button") 
 
 
 
@@ -18,73 +19,104 @@ const answersElement = document.getElementById("answers")
 //console.log(showQuestion(question))
 
 
-// need to get questions seprated into indvidual buttons by making ojects in the array with boolean
+// need to get questions seperated into individual buttons and making objects in the array with boolean for right or wrong answers
 
 let questions10 = [
     { questions: "Who was the first president of the United States ?",
-      choices: [{text:"George Bush"},{text: "George Washington"}, {text:"Abraham Lincoln"},{text:"John Cena"}],
+      choices: [{text:"George Bush",right: false},{text: "George Washington", right:true}, {text:"Abraham Lincoln", right:false},{text:"John Cena", right:false}],
      
     },
     { questions:"what is the largest ocean?",
-      choices:[{text:"Atlantic Ocean"},{text:"Indian Ocean"},{text:"Pacific Ocean"}, {text:"American Ocean"}],
+      choices:[{text:"Atlantic Ocean", right: false},{text:"Indian Ocean", right:false},{text:"Pacific Ocean", right:true}, {text:"American Ocean", right:false}],
       
        
-    }
-    // {Questions:"How many boroughs are in NYC?",
-    //  Choices:["1", "10","26","5"],
-    //  Answer: Choices[3],
+    },
+    {questions:"How many boroughs are in NYC?",
+     choices:[{text:"1", right: false},{text: "10", right:false},{text:"26", right: false},{text:"5", right:true}],
+     
     
-    // },
-    // {Questions: "What is the largest continent?",
-    //  Choices:["Asia", "North America", "South America", "Africa"],
-    //  Answer: Choices[0],
-    // },
-    // {Questions: "what is 2+2",
-    //  Choices:["2","5","4","6"],
-    //   Answer: Choices[2],
-    // },
-    // {Questions: "what is 2*2",
-    //  Choices:["2","5","4","6"],
-    //   Answer: Choices[2],
-    // },
-    // {Questions: "how many cylinders are in a V6 car",
-    //  Choices:["4","6","8","12"],
-    //  Answer: Choices[1],
-    // },
-    // {Questions: "What car is a german",
-    //  Choices:["bmw","ford","toyota","honda"],
-    //  Answer: Choices[0],
-    // },
-    // {Questions: "What borough has the biggest buildings",
-    //  Choices:["brooklyn", "Queens","Manhattan","New Jersey"],
-    //  Answer: Choices[0],
-    // },
+    },
+    {questions: "What is the largest continent?",
+     choices:[{text:"Asia", right:true}, {text:"North America", right:false}, {text:"South America",right:false}, {text:"Africa", right:false}],
+    
+    },
+    {questions: "what is 2+2",
+     choices:[{text:"2", right: false},{text:"5", right:false},{text:"4",right:true},{text:"6",right:false}],
+      
+    },
+    {questions: "what is 2*2?",
+     choices:[{text:"2", right: false},{text:"5", right:false},{text:"4", right:true},{text:"6", right:false}],
+     
+    },
+    {questions: "how many cylinders are in a V6 car?",
+     choices:[{text:"4",right: false},{text:"6", right:true},{text:"8",right:false},{text:"12",right:false}],
+     
+    },
+    {questions: "What car is a german?",
+     choices:[{text:"bmw", right:true},{text:"ford", right:false},{text:"toyota",right:false},{text:"honda",right:false}],
+    
+    },
+    {questions: "What borough has the biggest buildings ?",
+     choices:[{text:"brooklyn", right:false}, {text:"Queens",right:false},{text:"Manhattan",right:true},{text:"New Jersey",right:true}],
+  
+    },
 ]
 let choices
 let questions
 let question
-//let currentQuestionIndex = 
+let currentQuestionIndex =0
+let shuffledQuestions 
+
 //function to show questions on the page
+//within the same function need the answers to show
+//now need to get different answers to show up
+//got different Questions too
+
+//makes us go to next question when clicking submit button
+submitButton.addEventListener("click", () => {
+  currentQuestionIndex++
+  nextQuestion()  
+})
+
+function nextQuestion(){
+  
+  showQuestion([currentQuestionIndex])
+
+}
+
+function resetState(){
+window.location.reload()
+}
+
+
+//Questions shown/ answers shown on button 
 function showQuestion(questions){
-  const button= document.getElementsByClassName("button") 
+ 
     
     console.log(questionElement.innerText)
-   for(let i=0; i<questions10.length; i++){
-      question = questions10[i].questions
+  //  for(let i=0; i<questions10.length; i++){
+      question = questions10[currentQuestionIndex].questions
       questionElement.innerText=question
-      for(let j=0; j<questions10[i].choices.length;j++){
-        choices=questions10[i].choices[j].text
-        console.log(questions10[i].choices[j].text)
-        for(let z=0; z<button.length; z++){
-          button[z].innerText=questions10[i].choices[j].text
-        }
+      for(let j=0; j<questions10[currentQuestionIndex].choices.length;j++){
+        choices=questions10[currentQuestionIndex].choices[j].text
+        console.log(questions10[currentQuestionIndex].choices[j].text)
+        buttons[j].innerText=questions10[currentQuestionIndex].choices[j].text
         // button.innerText= choices  
       }
-    
+     
     
       console.log(choices)
    
-    }   
+
+
+
+    
+    
+    
+    
+    
+    
+      // }   
   
   questionElement.innertext=questions10.questions
   questions=questions10
@@ -106,6 +138,24 @@ function showQuestion(questions){
   //  }
 }
 showQuestion()
+//Now I am going to try to make the answers be pickable, and see if the answer picked is correct
+  
+buttons.forEach(button =>{ 
+
+
+  button.addEventListener("click", function (evt) {
+       const selectedbutton= parseInt(evt.target.id[1])
+       console.log(selectedbutton)
+       const correct = questions10[currentQuestionIndex].choices[selectedbutton].right  
+       if (correct) {
+          console.log("you are correct")
+        }else{ console.log("you are wrong")
+          
+
+        }
+      })
+
+    })
 
 // let choice
 
@@ -140,7 +190,3 @@ showQuestion()
 
 
 
-// the way i wrote answers to see if it work this way
- // {answer:"Atlantic Ocean", right: false }, {answer:"Indian Ocean", right: false}
-        // , {answer:"Pacific Ocean", right:true }, {answer:"American Ocean",right:false}],
-      
