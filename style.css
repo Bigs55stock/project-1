@@ -35,10 +35,11 @@ left:50%;
 
 } 
  
-.answers{
+.btn{
     background-color: yellow;
     position: absolute;
     top:310px;
+    
     
     
 } 

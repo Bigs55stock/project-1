@@ -8,7 +8,7 @@ const submitButton = document.querySelector(".submit")
 const resetButton = document.querySelector(".reset")
 const mainboxElement = document.querySelector(".mainbox")
 const questionElement = document.getElementById("question")
-const answersElement = document.querySelector(".answers")
+const answersElement = document.getElementById("answers")
 
 
 
@@ -22,14 +22,14 @@ const answersElement = document.querySelector(".answers")
 
 let questions10 = [
     { questions: "Who was the first president of the United States ?",
-      choices: ["George Bush", "George Washington", "Abraham Lincoln", "John Cena"],
-      answer:1
+      choices: [{text:"George Bush"},{text: "George Washington"}, {text:"Abraham Lincoln"},{text:"John Cena"}],
+     
     },
     { questions:"what is the largest ocean?",
-      choices:["Atlantic Ocean","Indian Ocean","Pacific Ocean", "American Ocean",],
-      answer: 2
+      choices:[{text:"Atlantic Ocean"},{text:"Indian Ocean"},{text:"Pacific Ocean"}, {text:"American Ocean"}],
+      
        
-    },
+    }
     // {Questions:"How many boroughs are in NYC?",
     //  Choices:["1", "10","26","5"],
     //  Answer: Choices[3],
@@ -60,50 +60,78 @@ let questions10 = [
     //  Answer: Choices[0],
     // },
 ]
-
-
+let choices
+let questions
 let question
 //let currentQuestionIndex = 
 //function to show questions on the page
-function showQuestion(){
-    
-    // console.log(questionElement.innerText)
+function showQuestion(questions){
+  const button= document.querySelector(".button") 
+    console.log(questionElement.innerText)
    for(let i=0; i<questions10.length; i++){
       question = questions10[i].questions
       questionElement.innerText=question
-   }  
+      for(let j=0; j<questions10[i].choices.length;j++){
+        choices=questions10[i].choices[j].text
+        console.log(questions10[i].choices[j].text)
+        button.innerText= choices
+      }
+    
+    
+      console.log(choices)
+   
+    }   
+  
+  questionElement.innertext=questions10.questions
+  questions=questions10
+  // 
+  //   button.innerText=questions.choices.text
+  // questions.questions.choices.forEach(choices => {
+    // const button = document.createElement("button")
+    //    button.innerText=choices.text
+    //   button.classList.add("btn") 
+    //   if(choices.correct){
+    //     button.dataset.correct= choices.correct
+    //   }
+    //    button.addEventListener("click", selectChoices)
+    //   answersElement.appendChild(button)
+    // })
+  // for(let j=0; j<questions10.length; j++){
+   
 
-    console.log(question)
-
-  }
+  //  }
+}
 showQuestion()
 
-let choice
+// let choice
 
-function showChoices(){
-  for(let i=0; i<questions10.length; i++){
-    choice = questions10[i].choices
-     console.log(choice)
-    for(let j=0; j<choice.length; j++){
+// function showChoices(){
+//   for(let i=0; i<questions10.length; i++){
+//     choice = questions10[i].choices
+//      console.log(choice)
+//     const button = document.createElement("button")
+   
+    
+//      answersElement.innerText=choice
+   
+//      for(let j=0; j<choice.length; j++){
       
-      
-      answersElement.innerText=choice[j]
-      console.log(choice[j])
+//       console.log(choice[j])
     
     
-    }
+//     }
 
     
 
-  }
+//   }
 
-}
-showChoices()
-//questionElement.innerText= questions10.Questions
+//  }
+//  showChoices()
+// //questionElement.innerText= questions10.Questions
 
-function rightAnswer(){
+// function rightAnswer(){
 
-}
+// }
 
 
 
