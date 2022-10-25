@@ -66,7 +66,8 @@ let question
 //let currentQuestionIndex = 
 //function to show questions on the page
 function showQuestion(questions){
-  const button= document.querySelector(".button") 
+  const button= document.getElementsByClassName("button") 
+    
     console.log(questionElement.innerText)
    for(let i=0; i<questions10.length; i++){
       question = questions10[i].questions
@@ -74,7 +75,10 @@ function showQuestion(questions){
       for(let j=0; j<questions10[i].choices.length;j++){
         choices=questions10[i].choices[j].text
         console.log(questions10[i].choices[j].text)
-        button.innerText= choices
+        for(let z=0; z<button.length; z++){
+          button[z].innerText=questions10[i].choices[j].text
+        }
+        // button.innerText= choices  
       }
     
     
