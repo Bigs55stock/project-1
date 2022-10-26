@@ -91,13 +91,17 @@ let point
 submitButton.addEventListener("click", () => {
   currentQuestionIndex++
   clearAnswerClass()
-  nextQuestion()  
+  nextQuestion()
+  
+  answersElement.classList.remove("disabled")
+  answersElement.classList.add("enabled")
 })
 
 function nextQuestion(){
   
   showQuestion([currentQuestionIndex])
-
+  // answersElement.disabled =false
+  
 }
 //reset button working
 resetButton.addEventListener("click", () =>
@@ -168,6 +172,7 @@ buttons.forEach(button =>{
        console.log(selectedbutton)
        const correct = questions10[currentQuestionIndex].choices[selectedbutton].right  
        setTheAnswerClass(evt.target,correct)
+
       //  Array.from(answersElement.children).forEach(button => {
         // setTheAnswerClass(button, selectedbutton.data.correct)
       //  })
@@ -181,10 +186,16 @@ buttons.forEach(button =>{
         }
        
         resultDisplay.innerHTML = result
+        
+        answersElement.classList.remove("enabled")
+        answersElement.classList.add("disabled")
+        
+       
+        console.log("abc")
       })
-
+     
     })
-  
+  // the result display ontop is showing question we are getting right.
 
 
 
@@ -209,9 +220,10 @@ buttons.forEach(button =>{
      
     }
 
-    // function disablebutton(){    for button to be clicked once
-    //   document.getElementById("b0").disabled = true;
-    // }
+
+    function disablebutton(e){    
+      
+    }
 // let choice
 
 // function showChoices(){
