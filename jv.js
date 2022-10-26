@@ -11,7 +11,7 @@ const mainboxElement = document.querySelector(".mainbox")
 const questionElement = document.getElementById("question")
 const answersElement = document.getElementById("answers")
 const buttons= document.querySelectorAll(".button") 
-
+const startButton = document.getElementById("start")
 
 
 
@@ -73,8 +73,22 @@ let shuffledQuestions
 //got different Questions too
 
 //makes us go to next question when clicking submit button
+
+
+// startButton.addEventListener("click", runGame)
+//   function runGame(){
+//     console.log(startButton)
+//     startButton.classList.add("hide")
+    
+
+//   }
+
+
+
+
 submitButton.addEventListener("click", () => {
   currentQuestionIndex++
+  clearAnswerClass()
   nextQuestion()  
 })
 
@@ -139,7 +153,7 @@ function showQuestion(questions){
 }
 showQuestion()
 //Now I am going to try to make the answers be pickable, and see if the answer picked is correct
-  
+
 buttons.forEach(button =>{ 
 
 
@@ -147,16 +161,44 @@ buttons.forEach(button =>{
        const selectedbutton= parseInt(evt.target.id[1])
        console.log(selectedbutton)
        const correct = questions10[currentQuestionIndex].choices[selectedbutton].right  
+       setTheAnswerClass(evt.target,correct)
+      //  Array.from(answersElement.children).forEach(button => {
+        setTheAnswerClass(button, selectedbutton.data.correct)
+      //  })
+       
        if (correct) {
-          console.log("you are correct")
-        }else{ console.log("you are wrong")
+         console.log ("you are correct")
+        }else{ ("you are wrong")
           
 
         }
       })
 
     })
+  
 
+
+
+    function setTheAnswerClass(element, correct){
+      clearAnswerClass(element)
+      if (correct) {
+        element.classList.add("arecorrect")
+      }else{ element.classList.add("arewrong")
+        
+
+      }
+    }
+
+
+    
+    function clearAnswerClass(){
+      buttons.forEach(button => {
+        button.classList.remove("arecorrect")
+        button.classList.remove("arewrong")
+
+      })
+     
+    }
 // let choice
 
 // function showChoices(){

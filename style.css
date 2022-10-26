@@ -45,3 +45,13 @@ background-color: lightblue;
     display:grid;
    
 }
+
+
+
+.arewrong{
+    background-color: red;
+}
+
+.arecorrect{
+    background-color: green;
+}
