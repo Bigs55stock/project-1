@@ -56,10 +56,18 @@ let questions10 = [
      choices:[{text:"bmw", right:true},{text:"ford", right:false},{text:"toyota",right:false},{text:"honda",right:false}],
     
     },
+    {questions: "What car is a american?",
+     choices:[{text:"bmw", right:false},{text:"ford", right:true},{text:"toyota",right:false},{text:"honda",right:false}],
+    
+    },
+
     {questions: "What borough has the biggest buildings ?",
-     choices:[{text:"brooklyn", right:false}, {text:"Queens",right:false},{text:"Manhattan",right:true},{text:"New Jersey",right:true}],
+     choices:[{text:"brooklyn", right:false}, {text:"Queens",right:false},{text:"Manhattan",right:true},{text:"New Jersey",right:false}],
   
     },
+    {questions: "Game Over",
+    choices:[{text:"need", right:false}, {text:"5 correct",right:false},{text:"to",right:false},{text:"win",right:false}],
+  }
 ]
 let choices
 let questions
@@ -221,9 +229,7 @@ buttons.forEach(button =>{
     }
 
 
-    function disablebutton(e){    
-      
-    }
+    
 // let choice
 
 // function showChoices(){
