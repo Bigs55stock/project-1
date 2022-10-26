@@ -27,6 +27,7 @@ h1{
    align-items: center;
 }
 
+
 #question{
 background-color: lightblue;
 
@@ -55,3 +56,4 @@ background-color: lightblue;
 .arecorrect{
     background-color: green;
 }
+

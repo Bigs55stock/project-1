@@ -12,7 +12,7 @@ const questionElement = document.getElementById("question")
 const answersElement = document.getElementById("answers")
 const buttons= document.querySelectorAll(".button") 
 const startButton = document.getElementById("start")
-
+const resultDisplay = document.getElementById("results")
 
 
 //console.log(questionElement.innerText())
@@ -66,7 +66,8 @@ let questions
 let question
 let currentQuestionIndex =0
 let shuffledQuestions 
-
+let result =0
+let point
 //function to show questions on the page
 //within the same function need the answers to show
 //now need to get different answers to show up
@@ -86,6 +87,7 @@ let shuffledQuestions
 
 
 
+//next question also cleans up from last question
 submitButton.addEventListener("click", () => {
   currentQuestionIndex++
   clearAnswerClass()
@@ -97,6 +99,10 @@ function nextQuestion(){
   showQuestion([currentQuestionIndex])
 
 }
+//reset button working
+resetButton.addEventListener("click", () =>
+resetState()
+)
 
 function resetState(){
 window.location.reload()
@@ -163,15 +169,18 @@ buttons.forEach(button =>{
        const correct = questions10[currentQuestionIndex].choices[selectedbutton].right  
        setTheAnswerClass(evt.target,correct)
       //  Array.from(answersElement.children).forEach(button => {
-        setTheAnswerClass(button, selectedbutton.data.correct)
+        // setTheAnswerClass(button, selectedbutton.data.correct)
       //  })
        
-       if (correct) {
+       if (correct ) {
          console.log ("you are correct")
-        }else{ ("you are wrong")
+         result +=1
+        }else{ console.log("you are wrong")
           
 
         }
+       
+        resultDisplay.innerHTML = result
       })
 
     })
@@ -199,6 +208,10 @@ buttons.forEach(button =>{
       })
      
     }
+
+    // function disablebutton(){    for button to be clicked once
+    //   document.getElementById("b0").disabled = true;
+    // }
 // let choice
 
 // function showChoices(){
