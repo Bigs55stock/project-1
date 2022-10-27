@@ -15,8 +15,7 @@ const startButton = document.getElementById("start")
 const resultDisplay = document.getElementById("results")
 
 
-//console.log(questionElement.innerText())
-//console.log(showQuestion(question))
+
 
 
 // need to get questions seperated into individual buttons and making objects in the array with boolean for right or wrong answers
@@ -81,16 +80,7 @@ let point = 0
 //now need to get different answers to show up
 //got different Questions too
 
-//makes us go to next question when clicking submit button
 
-
-// startButton.addEventListener("click", runGame)
-//   function runGame(){
-//     console.log(startButton)
-//     startButton.classList.add("hide")
-    
-
-//   }
 
 
 
@@ -100,17 +90,16 @@ submitButton.addEventListener("click", () => {
   currentQuestionIndex++
   clearAnswerClass()
   nextQuestion()
-  // gameOver()
   answersElement.classList.remove("disabled")
   answersElement.classList.add("enabled")
 })
 
 function nextQuestion(){
-  
   showQuestion([currentQuestionIndex])
-  // answersElement.disabled =false
+  
   
 }
+
 //reset button working
 resetButton.addEventListener("click", () =>
 resetState()
@@ -123,67 +112,28 @@ window.location.reload()
 
 //Questions shown/ answers shown on button 
 function showQuestion(questions){
- 
-    
-    console.log(questionElement.innerText)
-  //  for(let i=0; i<questions10.length; i++){
+ console.log(questionElement.innerText)
       question = questions10[currentQuestionIndex].questions
       questionElement.innerText=question
       for(let j=0; j<questions10[currentQuestionIndex].choices.length;j++){
         choices=questions10[currentQuestionIndex].choices[j].text
         console.log(questions10[currentQuestionIndex].choices[j].text)
         buttons[j].innerText=questions10[currentQuestionIndex].choices[j].text
-        // button.innerText= choices  
       }
-     
-    
-      console.log(choices)
-   
-
-
-
-    
-    
-    
-    
-    
-    
-      // }   
+    questionElement.innertext=questions10.questions
+    questions=questions10
   
-  questionElement.innertext=questions10.questions
-  questions=questions10
-  // 
-  //   button.innerText=questions.choices.text
-  // questions.questions.choices.forEach(choices => {
-    // const button = document.createElement("button")
-    //    button.innerText=choices.text
-    //   button.classList.add("btn") 
-    //   if(choices.correct){
-    //     button.dataset.correct= choices.correct
-    //   }
-    //    button.addEventListener("click", selectChoices)
-    //   answersElement.appendChild(button)
-    // })
-  // for(let j=0; j<questions10.length; j++){
-   
-
-  //  }
 }
 showQuestion()
 //Now I am going to try to make the answers be pickable, and see if the answer picked is correct
 
 buttons.forEach(button =>{ 
-
-
   button.addEventListener("click", function (evt) {
        const selectedbutton= parseInt(evt.target.id[1])
        console.log(selectedbutton)
        const correct = questions10[currentQuestionIndex].choices[selectedbutton].right  
        setTheAnswerClass(evt.target,correct)
 
-      //  Array.from(answersElement.children).forEach(button => {
-        // setTheAnswerClass(button, selectedbutton.data.correct)
-      //  })
        //shows the current score of the game while being played
        if (correct ) {
          console.log ("you are correct")
@@ -207,7 +157,7 @@ buttons.forEach(button =>{
 
 
 //highlights the choices if they are right or wrong 
-    function setTheAnswerClass(element, correct){
+function setTheAnswerClass(element, correct){
       clearAnswerClass(element)
       if (correct) {
         element.classList.add("arecorrect")
@@ -217,60 +167,12 @@ buttons.forEach(button =>{
       }
     }
 
-
-    
-    function clearAnswerClass(){
-      buttons.forEach(button => {
-        button.classList.remove("arecorrect")
-        button.classList.remove("arewrong")
+function clearAnswerClass(){
+  buttons.forEach(button => {
+    button.classList.remove("arecorrect")
+    button.classList.remove("arewrong")
 
       })
      
     }
-// let greeting
-//     function gameOver(){
-//       if(resultDisplay< 4){
-//        greeting= "you were close try again"
-
-//       } else if ( resultDisplay<= 5){
-//         greeting="you won"
-//       } else (resultDisplay === 10){
-//         greeting="perfect score"
-//       }
-
-
-//     }
-    
-// let choice
-
-// function showChoices(){
-//   for(let i=0; i<questions10.length; i++){
-//     choice = questions10[i].choices
-//      console.log(choice)
-//     const button = document.createElement("button")
-   
-    
-//      answersElement.innerText=choice
-   
-//      for(let j=0; j<choice.length; j++){
-      
-//       console.log(choice[j])
-    
-    
-//     }
-
-    
-
-//   }
-
-//  }
-//  showChoices()
-// //questionElement.innerText= questions10.Questions
-
-// function rightAnswer(){
-
-// }
-
-
-
 

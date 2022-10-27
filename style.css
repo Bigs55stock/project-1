@@ -12,39 +12,19 @@ title{
 }
 
 
-
 body{
     background-color: bisque;
 }
 
 h2{font-family: 'Fuzzy Bubbles', cursive;
- }
-/* h1{ 
-    justify-content: center;
-    padding: 0%;
-    align-items: center;
-    position: relative;
-    padding-bottom: 700px;
-    
-} */
+ 
+}
 
-/* .mainbox{
-   background: wheat;
-   height:350px;
-   width:350px;
-   max-width:90%;
-   border: 1px solid black;
-   padding: 25px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-} */
 
 .mainbox{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid black; */
 }
 
 
@@ -54,33 +34,21 @@ h2{font-family: 'Fuzzy Bubbles', cursive;
     background-size: 100%;
     width: 400px;
     height: 200px;
-    /* border-radius: 50%; */
     border: 5px solid darksalmon;
-    /* display: flex; */
-  margin-top: 10%;
-    /* align-items: center; */
+    margin-top: 10%;
     padding: 150px;
 }
 
    
 #question{
-/* background-color: lavender;
-border: 1px solid black; */
-bottom: 100px;
-font-size: 20px;
-margin:0px 10px 60px 0px;
-font-family: 'Fuzzy Bubbles', cursive;
+    bottom: 100px;
+    font-size: 20px;
+    margin:0px 10px 60px 0px;
+    font-family: 'Fuzzy Bubbles', cursive;
 
 } 
  
 .btn{
-    
-    
-    /* position: absolute;
-    bottom: 100px;
-    gap: 5px; */
-    
-    
     margin: 40px 0px 0px 150px;
     
 } 
@@ -88,14 +56,11 @@ font-family: 'Fuzzy Bubbles', cursive;
 .btnsgrid{
     display:grid;
     grid-template-columns: repeat(2, auto);
-  bottom:400px;
-  gap: 5px;
- 
+    bottom:400px;
+    gap: 5px;
     
- 
-   
-   
 }
+
 .button{
     padding: 10px;
     margin: 5px;
