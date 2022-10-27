@@ -65,8 +65,8 @@ let questions10 = [
      choices:[{text:"brooklyn", right:false}, {text:"Queens",right:false},{text:"Manhattan",right:true},{text:"New Jersey",right:false}],
   
     },
-    {questions: "Game Over",
-    choices:[{text:"need", right:false}, {text:"5 correct",right:false},{text:"to",right:false},{text:"win",right:false}],
+    {questions: "Game Over if you have 5 you win ",
+    choices:[{text:"to", right:false}, {text:"try",right:false},{text:"again",right:false},{text:"click reset",right:false}],
   }
 ]
 let choices
@@ -184,7 +184,7 @@ buttons.forEach(button =>{
       //  Array.from(answersElement.children).forEach(button => {
         // setTheAnswerClass(button, selectedbutton.data.correct)
       //  })
-       
+       //shows the current score of the game while being played
        if (correct ) {
          console.log ("you are correct")
          result +=1
@@ -194,7 +194,7 @@ buttons.forEach(button =>{
         }
        
         resultDisplay.innerHTML = result
-        
+        //allows the button to be clicked only once for each question
         answersElement.classList.remove("enabled")
         answersElement.classList.add("disabled")
         
@@ -206,7 +206,7 @@ buttons.forEach(button =>{
   // the result display ontop is showing question we are getting right.
 
 
-
+//highlights the choices if they are right or wrong 
     function setTheAnswerClass(element, correct){
       clearAnswerClass(element)
       if (correct) {
@@ -228,7 +228,16 @@ buttons.forEach(button =>{
      
     }
 
+    function gameOver(result){
+      if(correct< 4){
+        "you were close try again"
 
+      } else if ( correct <= 5){
+        "you won"
+      }
+
+
+    }
     
 // let choice
 
