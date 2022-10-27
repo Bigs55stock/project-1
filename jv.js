@@ -65,8 +65,8 @@ let questions10 = [
      choices:[{text:"brooklyn", right:false}, {text:"Queens",right:false},{text:"Manhattan",right:true},{text:"New Jersey",right:false}],
   
     },
-    {questions: "Game Over if you have 5 you win ",
-    choices:[{text:"to", right:false}, {text:"try",right:false},{text:"again",right:false},{text:"click reset",right:false}],
+    {questions: "Game Over if you have 5 correct you win ",
+    choices:[{text:"to", right: false}, {text:"try",right:false},{text:"again",right:false},{text:"click reset",right:false}],
   }
 ]
 let choices
@@ -75,7 +75,7 @@ let question
 let currentQuestionIndex =0
 let shuffledQuestions 
 let result =0
-let point
+let point = 0
 //function to show questions on the page
 //within the same function need the answers to show
 //now need to get different answers to show up
@@ -100,7 +100,7 @@ submitButton.addEventListener("click", () => {
   currentQuestionIndex++
   clearAnswerClass()
   nextQuestion()
-  
+  // gameOver()
   answersElement.classList.remove("disabled")
   answersElement.classList.add("enabled")
 })
@@ -189,11 +189,11 @@ buttons.forEach(button =>{
          console.log ("you are correct")
          result +=1
         }else{ console.log("you are wrong")
-          
+          point +=1
 
         }
        
-        resultDisplay.innerHTML = result
+        resultDisplay.innerHTML = `<p> wrong ${point} of 10 questions<br /> right ${result} of 10 </p>`
         //allows the button to be clicked only once for each question
         answersElement.classList.remove("enabled")
         answersElement.classList.add("disabled")
@@ -227,17 +227,19 @@ buttons.forEach(button =>{
       })
      
     }
+// let greeting
+//     function gameOver(){
+//       if(resultDisplay< 4){
+//        greeting= "you were close try again"
 
-    function gameOver(result){
-      if(correct< 4){
-        "you were close try again"
-
-      } else if ( correct <= 5){
-        "you won"
-      }
+//       } else if ( resultDisplay<= 5){
+//         greeting="you won"
+//       } else (resultDisplay === 10){
+//         greeting="perfect score"
+//       }
 
 
-    }
+//     }
     
 // let choice
 
